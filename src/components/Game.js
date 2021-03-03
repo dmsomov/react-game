@@ -12,7 +12,7 @@ class Game extends Component {
       }],
       stepNumber: 0,
       xIsNext: true,
-    }
+    };
   }
 
   handleClick(i) {
@@ -30,6 +30,7 @@ class Game extends Component {
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext,
     });
+    localStorage.setItem('hystory', JSON.stringify(history))
   }
 
   jumpTo(step) {
@@ -51,12 +52,11 @@ class Game extends Component {
     })
   }
 
-
   render() {
     const history = this.state.history;
+    // const current = history[history.length - 1 || this.state.stepNumber];
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
-    console.log(history);
     const moves = history.map((step, move) => {
       const desc = move ? 'Перейти к ходу #' + move : 'К началу игры';
       return (
@@ -65,8 +65,6 @@ class Game extends Component {
         </li>
       );
     });
-    
-    
     let status;
     if (winner) {
       status = 'Winner ' + winner;
