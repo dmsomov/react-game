@@ -1,5 +1,9 @@
 .footer {
   display: flex;
+  justify-content:space-around;
+  align-items: center;
+  height: 150px;
+  background-color: #FCFFED;
 }
 
 img {

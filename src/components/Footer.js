@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './Footer.css'
-import logo from '../components/img/img.png'
 
 class Footer extends Component {
   render() {
@@ -8,7 +7,7 @@ class Footer extends Component {
       <footer className='footer'>
       <a href="https://rs.school/js/">
         <img 
-          src={logo}
+          src={'https://rs.school/images/rs_school_js.svg'}
           alt='logoRS' />
       </a>
       <a href="https://github.com/dmsomov/">Link Github</a>

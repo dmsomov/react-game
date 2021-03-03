@@ -39,18 +39,29 @@ class Game extends Component {
     })
   }
 
+  clickButton(i) {
+    i.preventDefault();
+    this.jumpTo(0);
+    this.setState({
+      history: [{
+        squares: Array(9).fill(null),
+      }],
+      stepNumber: 0,
+      xIsNext: true,
+    })
+  }
 
 
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
-    
+    console.log(history);
     const moves = history.map((step, move) => {
       const desc = move ? 'Перейти к ходу #' + move : 'К началу игры';
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button className="button" onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
     });
@@ -65,6 +76,7 @@ class Game extends Component {
 
     return (
       <>
+        <button className="button" onClick={(i) => this.clickButton(i)} >New Game</button>
         <div className="game">
           <div className="game-board">
             <Board
@@ -73,7 +85,7 @@ class Game extends Component {
             />
           </div>
           <div className="game-info">
-            <div>{status}</div>
+            <div className="player" >{status}</div>
             <ol>{moves}</ol>
           </div>
         </div>
