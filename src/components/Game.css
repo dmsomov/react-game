@@ -1,0 +1,16 @@
+body {
+  display: flex;
+  justify-content: center;
+  background-color: #F9F7F7;
+  font: 20px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 20px;
+}
